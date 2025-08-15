@@ -1,6 +1,6 @@
-import React from 'react';
+// React 19 with new JSX transform doesn't need React import
 import { Sparkles } from 'lucide-react';
-import { FloatingWidget } from './FloatingWidget';
+import { FloatingWidget } from '~/components/FloatingWidget';
 import { CounterDemo } from './CounterDemo';
 
 export function ContentWidget() {

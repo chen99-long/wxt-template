@@ -2,9 +2,12 @@ import { useState } from 'react';
 import reactLogo from '@/assets/react.svg';
 import wxtLogo from '/wxt.svg';
 import './App.css';
+import useStorageState from '@/hooks/useStorageState';
+import { numState } from '@/utils/storages';
 
 function App() {
   const [count, setCount] = useState(0);
+  const [num , setNum] = useStorageState(numState)
 
   return (
     <>
@@ -25,6 +28,18 @@ function App() {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
+
+      {/* 新增一个持久化状态示例 */}
+      <div className="card">
+        <button onClick={() => setNum(num + 1)}>
+          count is {num}
+        </button>
+        <p>
+        This is the persistent state implemented through useStorageState
+        </p>
+      </div>
+      
+      
       <p className="read-the-docs">
         Click on the WXT and React logos to learn more
       </p>

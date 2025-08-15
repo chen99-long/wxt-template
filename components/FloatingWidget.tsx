@@ -1,7 +1,8 @@
-import React, { useState, ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import { motion } from 'framer-motion';
 import { Minimize2 } from 'lucide-react';
-import { Button } from '~/components/ui/button';
+import { Button } from './ui/button';
+import React from 'react';
 
 interface FloatingWidgetProps {
   /** 悬浮球状态下显示的图标 */

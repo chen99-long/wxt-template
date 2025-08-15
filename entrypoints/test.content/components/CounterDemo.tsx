@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+// React 19 with new JSX transform doesn't need React import
 import { Plus, Minus, RotateCcw } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '~/components/ui/button';
+import { getCommonService } from '@/services/CommonService';
 
 export function CounterDemo() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useStorageState(numState)
 
   return (
     <>
       {/* 计数器显示 */}
+      <div className='flex gap-2'>
+        <Button onClick={() => getCommonService().openNewTab("https://www.baidu.com")}>打开百度</Button>
+        <Button onClick={() => getCommonService().closeAllTabsWithoutCurrent()}>关闭所有非当前标签页</Button>
+      </div>
       <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
-        <span className="text-sm font-medium text-gray-700">计数器:</span>
+        <span className="text-sm font-medium text-gray-700">持久化计数器:</span>
         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           {count}
         </span>
@@ -72,6 +77,14 @@ export function CounterDemo() {
         <p className="flex items-center gap-1">
           <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
           可拖拽悬浮球
+        </p>
+        <p className="flex items-center gap-1">
+          <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+          持久化状态存储
+        </p>
+        <p className="flex items-center gap-1">
+          <span className="w-1.5 h-1.5 bg-green-500 rounded-full"></span>
+          background 服务代理
         </p>
       </div>
     </>
