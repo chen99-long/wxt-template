@@ -15,14 +15,17 @@
     "postinstall": "wxt prepare"
   },
   "dependencies": {
+    "@chenng99999/easymodal": "^1.1.3",
     "@radix-ui/react-slot": "^1.2.3",
     "@webext-core/messaging": "^2.3.0",
     "@webext-core/proxy-service": "^1.2.1",
     "axios": "^1.11.0",
+    "bare-toast": "^1.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "consola": "^3.4.2",
     "framer-motion": "^12.23.12",
+    "inject-content-message": "^1.3.1",
     "lucide-react": "^0.539.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

@@ -17,6 +17,9 @@ export default defineContentScript({
       position: 'inline',
       anchor: 'body',
       onMount: (container) => {
+        // 为主题切换添加标识
+        container.setAttribute('data-theme-container', 'true');
+
         // 创建 React 根节点
         const app = document.createElement('div');
         container.append(app);
@@ -34,6 +37,12 @@ export default defineContentScript({
 
     // 挂载 UI
     ui.mount();
+
+    // 为 ShadowDOM 主机元素添加标识
+    const shadowHost = document.querySelector('[data-wxt-shadow-root="wxt-content-widget"]');
+    if (shadowHost) {
+      shadowHost.setAttribute('data-wxt-shadow-root', 'true');
+    }
   },
 });
   

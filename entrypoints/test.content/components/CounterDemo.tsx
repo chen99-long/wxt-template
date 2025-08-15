@@ -2,9 +2,36 @@
 import { Plus, Minus, RotateCcw } from 'lucide-react';
 import { Button } from '~/components/ui/button';
 import { getCommonService } from '@/services/CommonService';
+import { EasyModal } from '@chenng99999/easymodal';
+import { sendEvent } from '@/utils/event';
+import { toast } from 'bare-toast';
 
 export function CounterDemo() {
   const [count, setCount] = useStorageState(numState)
+
+  // background 服务代理示范
+  const showTabInfo = async () => {
+    sendMessage("showCurrentTabInfo").then(async (tab) => {
+      const result = await EasyModal.alert({
+        title: '提示',
+        content: `当前标签页信息: ${JSON.stringify(tab)}`
+      });
+      console.log(result);
+    });
+  }
+
+  // 和injectscript通信
+  const messageWithInjectScript = async ()=>{
+    toast.promise(sendEvent("injectMessage", "Hello from content script").then(res=>{
+      EasyModal.alert({
+        content: `收到injectscript消息: ${res}`
+      });
+    }), {
+      success: 'Message sent successfully!',
+      error: 'Failed to send message'
+    });
+    
+  }
 
   return (
     <>
@@ -47,18 +74,13 @@ export function CounterDemo() {
         </Button>
       </div>
       
-      <Button 
-        onClick={(e) => {
-          e.stopPropagation();
-          setCount(0);
-        }}
-        variant="destructive"
-        size="sm"
-        className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700"
-      >
-        <RotateCcw className="w-3 h-3 mr-1" />
-        重置
-      </Button>
+      <div className='flex gap-2'>
+        <Button onClick={showTabInfo}>获取当前标签页信息</Button>
+      </div>
+
+      <div className='flex gap-2'>
+        <Button onClick={messageWithInjectScript}>和injectscript通信</Button>
+      </div>
       
       {/* 功能说明 */}
       <div className="text-xs text-gray-500 space-y-1 p-2 bg-gray-50 rounded-lg">

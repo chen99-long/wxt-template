@@ -4,6 +4,13 @@
     "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": ["react/jsx-runtime"]
+    "types": ["react/jsx-runtime"],
+    "paths": {
+      "@": ["./"],
+      "@/*": ["./*"],
+      "~": ["./"],
+      "~/*": ["./*"],
+      "components/*": ["./components/*"]
+    }
   }
 }

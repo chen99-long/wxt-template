@@ -1,10 +1,15 @@
 import { makeModuleLog } from "@/utils/log";
+import { onMessage } from "@/utils/message";
 import { defineProxyService } from "@webext-core/proxy-service";
 
 
 const log = makeModuleLog("CommonService");
 class CommonService {
-  constructor() {}
+  constructor() {
+    onMessage("showCurrentTabInfo", (data) => {
+      return data.sender;
+    });
+  }
 
   openNewTab(url: string) {
     log("openNewTab", url);
