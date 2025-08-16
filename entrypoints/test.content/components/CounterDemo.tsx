@@ -36,10 +36,13 @@ export function CounterDemo() {
   return (
     <>
       {/* 计数器显示 */}
+      <div className='text-lg font-bold text-blue-500'>功能示范：background 服务代理</div>
       <div className='flex gap-2'>
         <Button onClick={() => getCommonService().openNewTab("https://www.baidu.com")}>打开百度</Button>
         <Button onClick={() => getCommonService().closeAllTabsWithoutCurrent()}>关闭所有非当前标签页</Button>
       </div>
+
+      <div className='text-lg font-bold text-blue-500'>功能示范：持久化状态存储</div>
       <div className="flex items-center justify-between p-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
         <span className="text-sm font-medium text-gray-700">持久化计数器:</span>
         <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -74,10 +77,12 @@ export function CounterDemo() {
         </Button>
       </div>
       
+      <div className='text-lg font-bold text-blue-500'>功能示范:和background通信+EasyModal</div>
       <div className='flex gap-2'>
         <Button onClick={showTabInfo}>获取当前标签页信息</Button>
       </div>
 
+      <div className='text-lg font-bold text-blue-500'>功能示范:和injectscript通信+bare-toast</div>
       <div className='flex gap-2'>
         <Button onClick={messageWithInjectScript}>和injectscript通信</Button>
       </div>
