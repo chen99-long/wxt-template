@@ -34,7 +34,7 @@ export function ContentDemo() {
   }
 
   return (
-    <>
+    <div className='text-left space-y-4'>
       {/* Background 服务代理 */}
       <div className='text-sm font-semibold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent'>
         🚀 background 服务代理
@@ -81,7 +81,7 @@ export function ContentDemo() {
           }}
           variant="outline"
           size="sm"
-          className="flex-1 border-orange-300 text-orange-600 hover:bg-orange-50 hover:border-orange-400 transition-all duration-200"
+          className="flex-1 border-orange-300 bg-orange-50 text-orange-600 hover:bg-orange-400 hover:text-white hover:border-orange-400 transition-all duration-200"
         >
           <Minus className="w-3 h-3 mr-1" />
           减少
@@ -140,6 +140,6 @@ export function ContentDemo() {
           <span>background 服务代理</span>
         </p>
       </div>
-    </>
+    </div>
   );
 }
