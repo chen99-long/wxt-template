@@ -64,7 +64,7 @@ export function FloatingWidget({
           {title && (
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <div className="w-6 h-6 rounded-full flex items-center justify-center">
                   {React.isValidElement(icon)
                     ? React.cloneElement(icon, {
                         className: "w-3 h-3 text-white"
@@ -94,7 +94,7 @@ export function FloatingWidget({
           </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center w-full h-full">
+        <div className="">
           {React.isValidElement(icon)
             ? React.cloneElement(icon, {
                 className: "w-6 h-6 text-blue-600"
