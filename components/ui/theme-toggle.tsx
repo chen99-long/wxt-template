@@ -1,37 +1,29 @@
 import { Moon, Sun } from "lucide-react"
 import { Button } from "components/ui/button"
 import { useEffect, useState } from "react"
+import { themeState } from "@/utils/storages"
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const [theme, setTheme] = useStorageState(themeState)
 
   useEffect(() => {
-    // 从 localStorage 读取主题设置
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
-    const initialTheme = savedTheme || systemTheme
-    
-    setTheme(initialTheme)
-    updateTheme(initialTheme)
-  }, [])
+    updateTheme(theme)
+  }, [theme])
 
   const updateTheme = (newTheme: "light" | "dark") => {
     const root = document.documentElement
     
-    if (newTheme === "dark") {
+    if (newTheme === "dark" && !root.classList.contains("dark")) {
       root.classList.add("dark")
-    } else {
+    } else if (newTheme === "light" && root.classList.contains("dark")) {
       root.classList.remove("dark")
     }
     
-    // 保存到 localStorage
-    localStorage.setItem("theme", newTheme)
   }
 
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light"
     setTheme(newTheme)
-    updateTheme(newTheme)
   }
 
   return (

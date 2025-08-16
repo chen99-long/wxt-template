@@ -41,5 +41,11 @@
     "tailwindcss-animate": "^1.0.7",
     "typescript": "^5.8.3",
     "wxt": "^0.20.6"
+  },
+  "author": "chenlong",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chen99-long/wxt-template"
   }
 }

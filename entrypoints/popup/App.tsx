@@ -111,11 +111,10 @@ export default function WxtTemplate() {
 
           <div className="pt-4 border-t border-border/50">
             <div className="flex gap-2">
-              <Button size="sm" className="flex-1 h-8">
+              <Button onClick={()=>{
+                window.open("https://github.com/chen99-long/wxt-template")
+              }} size="sm" className="flex-1 h-8">
                 开始使用
-              </Button>
-              <Button variant="outline" size="sm" className="h-8 bg-transparent">
-                文档
               </Button>
             </div>
           </div>
