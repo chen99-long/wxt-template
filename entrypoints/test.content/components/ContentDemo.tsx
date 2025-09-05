@@ -22,7 +22,8 @@ export function ContentDemo() {
 
   // 和injectscript通信
   const messageWithInjectScript = async ()=>{
-    toast.promise(sendEvent("injectMessage", "Hello from content script").then(res=>{
+    toast.promise(sendEvent("injectMessage", {message: "Hello from content script"}).then(res=>{
+      console.log(res);
       EasyModal.alert({
         content: `收到injectscript消息: ${res}`
       });

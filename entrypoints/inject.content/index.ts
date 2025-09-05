@@ -11,7 +11,7 @@ export default defineContentScript({
     listenEvent("injectMessage",  async (message) => {
       console.log(message);
       await new Promise(resolve => setTimeout(resolve, 1000));
-      return "收到contentscript的消息: " + message;
+      return "收到contentscript的消息: " + message.message;
     });
   },
 });
